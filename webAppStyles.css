@@ -1,0 +1,85 @@
+body{
+    
+}
+
+.logoImage {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginTextTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    color: lightseagreen;
+}
+
+.loginScreen {
+    display: none;
+    
+}
+
+.dataScreen {
+    display: block;
+}
+
+.loginContainer{
+    width: 400px;
+    height: 100px;
+    background-color: blue;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.loginTextInput{
+    margin: auto;
+}
+
+.loginButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signUpButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dataScreenBarContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoImageLeft{
+    width: 150px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.titleTextData {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    color: lightseagreen;
+    
+}
+
+.logOutButton {
+    margin-top: 20px;
+    margin-right: 50px;
+    width: 100px;
+    height: 50px;
+}
+
+.addDataButton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
