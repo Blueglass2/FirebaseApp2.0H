@@ -55,22 +55,9 @@
             
             <br><br>
             <button class = "dataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
-            <div class="input-field" style="margin: 10px;">
-                <label for="gameName">Video game</label>
-                <input type="text" id="idGameNameUp">
-            </div>
             
-            <div class="input-field">
-                <label for="consoleName">Console Played</label>
-                <input type="text" id="idConsoleNameUp">
-            </div>
-            
-            <div class="input-field">
-                <label for="hoursPlayed">Hours Played</label>
-                <input type="text" id="idGameHoursUp">
-            </div>
-            <button class="dataButton" onclick = "update()"> Update Hours </button>
-            
+            <button class="dataButton" id = "idUpdateButton" onclick = "toUpdateScreen()"> Update Hours </button>
+    
             <!--LIST OF STUDENTS TUTORED We will get this content programmatically
                      from the database using a method called renderLog() in realtime.js -->
             <div class="container" style="margin-top: 40px;">
@@ -81,6 +68,34 @@
             </div>
         </nav>
         
+        <!--- Update Screen-->
+        <nav class="updateDataScreen" id="idUpdateDataScreen">
+            <nav class="dataScreenBarContainer" id="idDataScreen">
+                <img src="FirebaseAppProjectLogo.png" class="logoImageLeft">
+        
+                <div class="titleTextData"> Video Game Play time Record </div>
+        
+            </nav>
+        
+            <div class="input-field" style="margin: 10px;">
+                <label>Video game</label>
+                <input type="text" id="idGameNameUp">
+            </div>
+        
+            <div class="input-field">
+                <label>Console Played</label>
+                <input type="text" id="idConsoleNameUp">
+            </div>
+        
+            <div class="input-field">
+                <label>Hours Played</label>
+                <input type="text" id="idGameHoursUp">
+            </div>
+        
+            <button class="dataButton" onclick="showData()">Show Data</button>
+            <button class="dataButton" onclick="update()">Update</button>
+            <button class="dataButton" onclick="backToDataScreen()">Back</button>
+        </nav>
         
         <!--- Modal Sign up --->        
          <div class="modal" id="modalSignUp">
@@ -140,39 +155,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- UPDATE GAME MODAL -->
-        <!--<div id="modal-update" class="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Update Hours</h4>
-                    </div>
-        
-                    <form id="dataUpdate-form">
-                        <div class="input-field" style="margin: 10px;">
-                            <label for="gameName">Video game</label>
-                            <input type="text" id="idGameNameUp">
-                        </div>
-                        
-                        <div class="input-field">
-                            <label for="consoleName">Console Played</label>
-                            <input type="text" id="idConsoleNameUp">
-                        </div>
-
-                        <div class="input-field">
-                            <label for="hoursPlayed">Hours Played</label>
-                            <input type="text" id="idGameHoursUp">
-                        </div>
-
-                        
-                        <button class="formButton" onCLick = "update()">Update</button>
-                        
-                    </form>
-                </div>
-            </div>
-        </div> --->
 
         
 

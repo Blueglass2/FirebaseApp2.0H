@@ -24,6 +24,10 @@ body {
     display: block;
 }
 
+.updateDataScreen {
+    display: none;
+}
+
 .loginContainer{
     width: 500px;
     height: 250px;

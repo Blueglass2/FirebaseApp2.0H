@@ -147,7 +147,7 @@ function renderLog(doc) {
 function showData(){
    ready();
    console.log(gameNameV + " " + consoleV + " " + hoursPlayedV);
-   db.collection('player').where("idGameNameUp", '==', gameNameV).get().then((snapshot) => {
+   db.collection('player').where("videoGameName", '==', gameNameV).get().then((snapshot) => {
        snapshot.forEach((doc) => {
            console.log(doc.id, " => ", doc.data());
            console.log(doc.data().idGameNameUp);
@@ -166,7 +166,7 @@ function showData(){
 function update(){
    ready();
    console.log(gameNameV + " " + consoleV + " " + hoursPlayedV);
-   db.collection('player').where("idGameNameUp", '==', gameNameV).get().then((snapshot) => {
+   db.collection('player').where("videoGameName", '==', gameNameV).get().then((snapshot) => {
        snapshot.forEach((doc) => {
            console.log(doc.id, " => ", doc.data());
            // gets UID so we can locate the document to update it in collection
