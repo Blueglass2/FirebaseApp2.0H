@@ -100,7 +100,6 @@ function signIn() {
         document.getElementById("idEmail").value = "";
         document.getElementById("idPassword").value = "";
         document.getElementById("idLoginScreen").style.display = "none";
-        document.getElementById("idUpdateDataScreen").style.display = "none";
         document.getElementById("idDataScreen").style.display = "block";
 
     }).catch(e => console.log(e.message));
@@ -116,7 +115,6 @@ function signOut() {
 
     document.getElementById("idLoginScreen").style.display = "block";
     document.getElementById("idDataScreen").style.display = "none";
-    document.getElementById("idUpdateDataScreen").style.display = "none";
 }
 
 /*
@@ -149,21 +147,6 @@ addForm.addEventListener('submit', (e) => {
 })
 
 
-/*
-*/
-function toUpdateScreen(){
-    document.getElementById("idLoginScreen").style.display = "none";
-    document.getElementById("idDataScreen").style.display = "none";
-    document.getElementById("idUpdateDataScreen").style.display = "block";
-}
-
-/*
-*/
-function backToDataScreen(){
-    document.getElementById("idLoginScreen").style.display = "none";
-    document.getElementById("idDataScreen").style.display = "block";
-    document.getElementById("idUpdateDataScreen").style.display = "none";
-}
 
 /*
     SET UP MATERIALIZE COMPONENTS

@@ -17,14 +17,10 @@ body {
 }
 
 .loginScreen {
-    display: none;
-}
-
-.dataScreen {
     display: block;
 }
 
-.updateDataScreen {
+.dataScreen {
     display: none;
 }
 

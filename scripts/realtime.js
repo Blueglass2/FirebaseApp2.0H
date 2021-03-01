@@ -3,14 +3,6 @@
 // in order to use it, we need to add the firestore SDK link in
 // our HTML file and create a firestore const like we did for auth
 
-var gameNameV, consoleV, hoursPlayedV;    // values of the input boxes in the HTML
- 
-function ready() {
-  gameNameV = document.getElementById('idGameNameUp').value;
-  consoleV = document.getElementById('idConsoleNameUp').value;
-  hoursPlayedV = document.getElementById('idGameHoursUp').value;
-   
-}
 
 
 const logList = document.querySelector('.player');
@@ -119,83 +111,8 @@ function renderLog(doc) {
     })
     
   };
-
-// SEARCH/SHOW DATA FUNCTIONALITY - ONCLICK
-/*
-    This code has two different search capabilities - first by
-    idNum and then by name. The idea is that the user would type
-    in a name (with the rest of the fields blank) and
-    then press the show data button to have the rest of the info
-    shown. They could also do the same thing with the
-    id number.
-
-    Using the where() function allows me to do a query and
-    limit the values that are returned from the collection
-
-    bad assumptions - name and id are unique. She didn't really
-    design this project for multiple documents with same name / id
-
-
-    When we call get(), we are getting a snapshot of the database,
-    which is essentially an instance of the database (or collection)
-    at that moment in time
-
-    After getting this snapshot, you can iterate through the snapshot
-    and see all the documents that are in it.
-*/
-
-function showData(){
-   ready();
-   console.log(gameNameV + " " + consoleV + " " + hoursPlayedV);
-   db.collection('player').where("videoGameName", '==', gameNameV).get().then((snapshot) => {
-       snapshot.forEach((doc) => {
-           console.log(doc.id, " => ", doc.data());
-           console.log(doc.data().idGameNameUp);
-           document.getElementById('idGameNameUp').value = doc.data().videoGameName;
-           document.getElementById('idConsoleNameUp').value = doc.data().consoleName;
-           document.getElementById('idGameHoursUp').value = doc.data().hoursPlayed;
-           
-       });
-   }).catch((e) => {
-       console.log("Error getting game by name: ", e.message);
-   });
-}; 
-
-// UPDATE FUNCTIONALITY - ONCLICK
-
-function update(){
-   ready();
-   console.log(gameNameV + " " + consoleV + " " + hoursPlayedV);
-   db.collection('player').where("videoGameName", '==', gameNameV).get().then((snapshot) => {
-       snapshot.forEach((doc) => {
-           console.log(doc.id, " => ", doc.data());
-           // gets UID so we can locate the document to update it in collection
-           const updateID = doc.id;
-          console.log("Pain");
-           // if any of these fields are empty, we then keep old value
-           if (gameNameV == undefined) {
-               gameNameV = doc.data().videoGameName;
-           }
-           if (consoleV == undefined) {
-               consoleV = doc.data().consoleName;
-           }
-           if (idGameHours == undefined) {
-               idGameHours = doc.data().hoursPlayed;
-           }
- 
-           // sets new value to this existing student record.  Update will only
-           // change the values we ask it to change. 
-           db.collection('player').doc(updateID).update({
-               videoGameName: gameNameV,
-               consoleName: consoleV,
-               hoursPlayed: hoursPlayedV,
-           }).then(() => {
-               console.log("Updated, new data:");
-           }).catch(e => console.log(e.message));
-       });
-   });
    
-};
+
 /*
     SET UP MATERIALIZE COMPONENTS
     **  You only need this if you are using the Materialize styling and the code you

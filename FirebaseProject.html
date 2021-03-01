@@ -56,7 +56,6 @@
             <br><br>
             <button class = "dataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
             
-            <button class="dataButton" id = "idUpdateButton" onclick = "toUpdateScreen()"> Update Hours </button>
     
             <!--LIST OF STUDENTS TUTORED We will get this content programmatically
                      from the database using a method called renderLog() in realtime.js -->
@@ -68,34 +67,7 @@
             </div>
         </nav>
         
-        <!--- Update Screen-->
-        <nav class="updateDataScreen" id="idUpdateDataScreen">
-            <nav class="dataScreenBarContainer" id="idDataScreen">
-                <img src="FirebaseAppProjectLogo.png" class="logoImageLeft">
         
-                <div class="titleTextData"> Video Game Play time Record </div>
-        
-            </nav>
-        
-            <div class="input-field" style="margin: 10px;">
-                <label>Video game</label>
-                <input type="text" id="idGameNameUp">
-            </div>
-        
-            <div class="input-field">
-                <label>Console Played</label>
-                <input type="text" id="idConsoleNameUp">
-            </div>
-        
-            <div class="input-field">
-                <label>Hours Played</label>
-                <input type="text" id="idGameHoursUp">
-            </div>
-        
-            <button class="dataButton" onclick="showData()">Show Data</button>
-            <button class="dataButton" onclick="update()">Update</button>
-            <button class="dataButton" onclick="backToDataScreen()">Back</button>
-        </nav>
         
         <!--- Modal Sign up --->        
          <div class="modal" id="modalSignUp">
