@@ -3,122 +3,176 @@
         <meta charset = "UTF-8">
         <title> My Firebase Project</title>
 
+        <!-- need these links for the modal-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
         <!-- styles reference-->
         <link rel="stylesheet" href="webAppStyles.css">
-
-
-        <!-- need these links for the modal-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         
     </head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <body>
-        <nav class = "loginScreen" id = "idLoginScreen">
-            <br>
-            <br>
-            <br>
-            <br>
+        <!-- Login Screen-->
+        <nav class="loginScreen" id = "idLoginScreen">
             <br>
             <br>
         
-            <img src="ThanosCool.gif" class="logoImage">
+            <img src="FirebaseAppProjectLogo.png" class="logoImage">
             
-            <div class="loginTextTitle"> High Scores Tracker </div>
+            <div class="loginTextTitle"> Video Game Playtime Recorder </div>
             
             <div id="idLoginContainer" class="loginContainer">
-                <input type="email" class = "loginTextInput" placeholder="email" id="email">
+                <br>
+                <label class = "loginLabel">Email address</label>
+                <input type="email" class = "loginTextInput" placeholder="email" id="idEmail">
+                <br>
+
+                <label class = "loginLabel">Password</label>
+                <input type="password" class = "loginTextInput" placeholder="password" id="idPassword">
                 <br>
                 <br>
-                <input type="password" class = "loginTextInput" placeholder="password" id="password">
-            </div>
-            
-            <br>
-
-            <button class="loginButton" oncLick="signIn()" id = "loginButton"> Log in</button>
-
-            <br>
-            
-            <div id="signUpContainer">
+                <button class="loginButton" oncLick="signIn()" id="loginButton"> Log in</button>
+                <br>
                 <button class="signUpButton" data-toggle="modal" data-target="#modalSignUp"> Sign Up</button>
+
+                
             </div>
+            
         </nav>
         
+        <!--- Data Screen-->
         <nav class="dataScreen" id = "idDataScreen">
-            <nav class = "dataScreenBarContainer">
-                <img src="ThanosCool.gif" class="logoImageLeft">
+            <nav class = "dataScreenBarContainer" id = "idDataScreen">
+                <img src="FirebaseAppProjectLogo.png" class="logoImageLeft">
                 
-                <div class="titleTextData"> High Scores </div>
+                <div class="titleTextData"> Video Game Play time Record </div>
                 
                 <button class="logOutButton" id="idLogOut" onclick="signOut()" style="float: right"> Log Out</button>
             </nav>
             
-            
-            
             <br><br>
-            <button class = "addDataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
+            <button class = "dataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
+            <div class="input-field" style="margin: 10px;">
+                <label for="gameName">Video game</label>
+                <input type="text" id="idGameNameUp">
+            </div>
             
-            <!-- LIST OF STUDENTS TUTORED We will get this content programmatically
-                     from the database using a method called renderLog() in index.js -->
+            <div class="input-field">
+                <label for="consoleName">Console Played</label>
+                <input type="text" id="idConsoleNameUp">
+            </div>
+            
+            <div class="input-field">
+                <label for="hoursPlayed">Hours Played</label>
+                <input type="text" id="idGameHoursUp">
+            </div>
+            <button class="dataButton" onclick = "update()"> Update Hours </button>
+            
+            <!--LIST OF STUDENTS TUTORED We will get this content programmatically
+                     from the database using a method called renderLog() in realtime.js -->
             <div class="container" style="margin-top: 40px;">
-                <ul class="z-depth-0 logs" style="border: none;">
-                    
+                
+                <ul class= "player" style = "list-style: none;">
+
                 </ul>
             </div>
         </nav>
-
         
-        <!--- Modal Sign up --->
-        <div class="modal" id="modalSignUp" role="dialog">
+        
+        <!--- Modal Sign up --->        
+         <div class="modal" id="modalSignUp">
             <div class="modal-dialog">
         
-                <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Sign Up</h4>
                     </div>
-                    <form id = "signUp-form">
+                    <form id="signUp-form">
                         <div class="modal-body">
                             <label for="login-email">Email address</label>
                             <input type="email" placeholder="Your email" id="signUpEmail" required>
-
-                            <br>
-                            <br>
-
+                    
                             <label for="login-password">Your Password</label>
                             <input type="password" placeholder="Your password" id="signUpPassword" required>
-                            
+                    
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn blue darken-2 z-depth-0" onClick = "signUp()">Sign Up</button>
-                        </div>
+                    
+                        <button class = "formButton" onClick="signUp()">Sign Up</button>
+                    
                     </form>
                 </div>
         
             </div>
         </div>
+    
 
-        <!-- ADD STUDENT MODAL -->
+        <!-- ADD GAME MODAL -->
         <div id="modal-add" class="modal">
-            <div class="modal-content">
-                <h4>Add New Score</h4><br />
-                <form id="data-form">
-                    <div class="input-field">
-                        <input type="text" placeholder="Choose Player Name" id="idName" required>
-                        <label for="player-name">Player Name</label>
+            <div class="modal-dialog" >
+                <div class="modal-content">
+                    <div class = "modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Add New Video Game</h4>
                     </div>
-                    <div class="input-field">
-                        <input type="text" placeholder="Type in Player Score" id="idScore" required>
-                        <label for="player-score">Player Score</label>
-                    </div>
-                    <button class="btn blue darken-2 z-depth-3" onClick = >Create</button>
-                </form>
+                    
+                    <form id="data-form">
+                        <div class="input-field" style ="margin: 10px;">
+                            <label for="gameName">Video game</label>
+                            <input type="text" id="idGameName" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="consoleName">Console Played</label>
+                            <input type="text" id="idConsoleName" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="hoursPlayed">Hours Played</label>
+                            <input type="text" id="idGameHours" required>
+                
+                        </div>
+                        <button class = "formButton">Create</button>
+                    </form>
+                </div>
             </div>
         </div>
+
+        <!-- UPDATE GAME MODAL -->
+        <!--<div id="modal-update" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Update Hours</h4>
+                    </div>
+        
+                    <form id="dataUpdate-form">
+                        <div class="input-field" style="margin: 10px;">
+                            <label for="gameName">Video game</label>
+                            <input type="text" id="idGameNameUp">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="consoleName">Console Played</label>
+                            <input type="text" id="idConsoleNameUp">
+                        </div>
+
+                        <div class="input-field">
+                            <label for="hoursPlayed">Hours Played</label>
+                            <input type="text" id="idGameHoursUp">
+                        </div>
+
+                        
+                        <button class="formButton" onCLick = "update()">Update</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div> --->
 
         
 
@@ -159,7 +213,7 @@
 
         <script src="scripts/auth.js"></script>
         <script src="scripts/realtime.js"></script>
-        <!--<script src="scripts/realtime.js"></script>-->
+        
 
     </body>
 </html>
