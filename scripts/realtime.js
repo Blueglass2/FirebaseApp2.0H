@@ -111,7 +111,26 @@ function renderLog(doc) {
     })
     
   };
-   
+
+  
+/*
+    This function is making me mad.  I have tried every which way to get the Login
+    please method to disappear when they are logged in and cannot get it to work.
+    I have tried to get the else to run correctly without running the code this way
+    and cannot get it to work.  I am VERY ANNOYED.
+*/
+const setupLogs = (data) => {
+    // check if data has length to display.  If it does, then go through the data
+    // if not, then we want to display a message instructing them to login
+  
+    if (data.length) {
+      // empty - needed for SOME annoying reason
+     }
+  
+    else {
+      logList.innerHTML = '<h5 class = "center-align"></h5>'
+    }
+  }
 
 /*
     SET UP MATERIALIZE COMPONENTS

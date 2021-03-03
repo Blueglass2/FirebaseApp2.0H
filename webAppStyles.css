@@ -1,5 +1,5 @@
 body {
-  background-color: #0B4F6C;
+  
 }
 
 .logoImage {
@@ -23,6 +23,12 @@ body {
 .dataScreen {
     display: none;
 }
+
+.mainContainer{
+    background-color: #0B4F6C;
+    height: 90%;
+}
+
 
 .loginContainer{
     width: 500px;
@@ -80,9 +86,17 @@ body {
 }
 
 .bottomContainer{
-    height: 200px;
+    height: 10%;
     background-color:  #0091ba;
     align-items: flex-end;
+    justify-content: flex-end;
+}
+.importantInfoText{
+    padding: 10px;
+    color: #d1d1d1;
+    font-size: 13px;
+    text-decoration-line: underline;
+    text-align: right;
 }
 
 .dataScreenBarContainer{
@@ -115,7 +129,7 @@ body {
     height: 50px;
     color: #0B4F6C;
     background-color: #d1d1d1;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     border-style: solid;
     border-width: 3px;

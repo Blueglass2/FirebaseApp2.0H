@@ -10,64 +10,81 @@
         <link rel="stylesheet" href="webAppStyles.css">
         
     </head>
-
+    <!--- Referenced this: https://www.w3schools.com/bootstrap/bootstrap_modal.asp -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <body>
+        <div class="mainContainer">
+
         <!-- Login Screen-->
         <nav class="loginScreen" id = "idLoginScreen">
-            <br>
-            <br>
-        
-            <img src="FirebaseAppProjectLogo.png" class="logoImage">
             
-            <div class="loginTextTitle"> Video Game Playtime Recorder </div>
+                <br>
+                <br>
             
-            <div id="idLoginContainer" class="loginContainer">
-                <br>
-                <label class = "loginLabel">Email address</label>
-                <input type="email" class = "loginTextInput" placeholder="email" id="idEmail">
-                <br>
+                <img src="FirebaseAppProjectLogo.png" class="logoImage">
+                
+                <div class="loginTextTitle"> Video Game Playtime Recorder </div>
+                
+                <div id="idLoginContainer" class="loginContainer">
+                    <br>
+                    <label class = "loginLabel">Email address</label>
+                    <input type="email" class = "loginTextInput" placeholder="email" id="idEmail">
+                    <br>
 
-                <label class = "loginLabel">Password</label>
-                <input type="password" class = "loginTextInput" placeholder="password" id="idPassword">
-                <br>
-                <br>
-                <button class="loginButton" oncLick="signIn()" id="loginButton"> Log in</button>
-                <br>
-                <button class="signUpButton" data-toggle="modal" data-target="#modalSignUp"> Sign Up</button>
+                    <label class = "loginLabel">Password</label>
+                    <input type="password" class = "loginTextInput" placeholder="password" id="idPassword">
+                    <br>
+                    <br>
+                    <button class="loginButton" oncLick="signIn()" id="loginButton"> Log in</button>
+                    <br>
+                    <button class="signUpButton" data-toggle="modal" data-target="#modalSignUp"> Sign Up</button>
+
+                </div>
 
                 
-            </div>
             
         </nav>
         
         <!--- Data Screen-->
         <nav class="dataScreen" id = "idDataScreen">
-            <nav class = "dataScreenBarContainer" id = "idDataScreen">
-                <img src="FirebaseAppProjectLogo.png" class="logoImageLeft">
-                
-                <div class="titleTextData"> Video Game Play time Record </div>
-                
-                <button class="logOutButton" id="idLogOut" onclick="signOut()" style="float: right"> Log Out</button>
-            </nav>
             
-            <br><br>
-            <button class = "dataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
-            
-    
-            <!--LIST OF STUDENTS TUTORED We will get this content programmatically
-                     from the database using a method called renderLog() in realtime.js -->
-            <div class="container" style="margin-top: 40px;">
+                <nav class = "dataScreenBarContainer" id = "idDataScreen">
+                    <img src="FirebaseAppProjectLogo.png" class="logoImageLeft">
+                    
+                    <div class="titleTextData"> Video Game Playtime Recorder </div>
+                    
+                    <button class="logOutButton" id="idLogOut" onclick="signOut()" style="float: right"> Log Out</button>
+                </nav>
                 
-                <ul class= "player" style = "list-style: none;">
+                <br><br>
+                <button class = "dataButton" id = "idAddDataButton" data-toggle="modal" data-target="#modal-add"> Add </button>
+                
+        
+                <!--LIST OF STUDENTS TUTORED We will get this content programmatically
+                        from the database using a method called renderLog() in realtime.js -->
+                <div class="container" style="margin-top: 40px;">
+                    
+                    <ul class= "player" style = "list-style: none;">
 
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </div>
+            
+            
+            </nav>
+
+        </div>
+
+        <!--- Bottom portion of screen that has important data stuff-->
+        <div class="bottomContainer">
+            <br>
+            <br>
+            <br>
+            <div class = "importantInfoText"> Insert Legal Stuff Here 2021; By: Hayden Kim</div>
+        </div>
         
-        
+
         
         <!--- Modal Sign up --->        
          <div class="modal" id="modalSignUp">

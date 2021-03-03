@@ -4,6 +4,8 @@ the firebase firestore database and also firebase auth that is needed to authent
 authorized users.  If you don't use auth, then some of this code is not needed.
 */
 
+var unsubscribe;
+
 auth.onAuthStateChanged(user => {
     //  if the user was logged out, then user parameter will be null
     //  if the user is logged in, then user parameter will equal a reference to their account (auth token)
@@ -32,7 +34,7 @@ auth.onAuthStateChanged(user => {
             we want to make sure that the logs do NOT display and that the UI displays the appropriate links to Log in or 
             Sign up
             */
-            db.collection('player').onSnapshot(snapshot => {
+            unsubscribe = db.collection('player').onSnapshot(snapshot => {
                 
                 let changes = snapshot.docChanges();
                 // based on change made, either add to display or remove from display
@@ -76,9 +78,9 @@ function signUp() {
     //Unsuccessful -> catch code (catch error message)
     auth.createUserWithEmailAndPassword(email, password).then(() => {
         console.log("Signed up " + email);
-        const modal = document.querySelector('#modalSignUp');
-        M.Modal.getInstance(modal).close();
-        signupForm.reset(); 
+        //const modal = document.querySelector('#modalSignUp');
+        //M.Modal.getInstance(modal).close();
+        //signupForm.reset(); 
     }).catch(e => console.log(e.message));
 }
 
@@ -111,6 +113,7 @@ function signIn() {
 */
 function signOut() {
     auth.signOut();
+    unsubscribe();
     console.log("Signed Out");
 
     document.getElementById("idLoginScreen").style.display = "block";
